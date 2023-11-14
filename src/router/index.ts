@@ -5,6 +5,7 @@ import FazerAvaliacaoRestaurante from '@/components/fazerAvaliacaoRestaurante.vu
 import MostrarAvaliacaoRestaurante from '@/components/mostrarAvaliacaoRestaurante.vue'
 import MostrarAvaliacaoEntregador from '@/components/mostrarAvaliacaoEntregador.vue'
 import PaginaPrincipal from '@/components/paginaPrincipal.vue'
+import PaginaPrincipalAvaliacao from '@/components/paginaPrincipalAvaliacao.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,7 +13,7 @@ const router = createRouter({
    
 {
 
-path: '/avaliarEntredor',
+path: '/avaliarEntregador',
 component: FazerAvaliacaoEntregador
 
 
@@ -42,6 +43,14 @@ component: MostrarAvaliacaoEntregador
 
   path: '/',
   component: PaginaPrincipal
+
+},
+
+{
+
+  path: "/avaliacoes",
+  component: PaginaPrincipalAvaliacao
+
 
 }
 

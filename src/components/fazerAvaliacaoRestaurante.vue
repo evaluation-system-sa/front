@@ -2,7 +2,7 @@
 
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <RouterLink class="navbar-brand" to="/">Avaliações</RouterLink>        
+      <RouterLink class="navbar-brand" to="/">Senai Food</RouterLink>        
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -44,12 +44,27 @@
 import { defineComponent } from 'vue';
 import http from './http'
 import type AvaliacaoRestaurante from './interfaces/AvaliacaoRestaurante';
+import feedback from './feedback.vue';
 
 export default defineComponent ({
 
+components: {
+
+feedback
+
+}
 
 
 })
 
 
 </script>
+
+<style>
+
+
+
+
+
+
+</style>
