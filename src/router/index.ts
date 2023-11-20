@@ -35,7 +35,7 @@ component: MostrarAvaliacaoRestaurante
 
 {
 
-path: '/mostrarAvaliacoesEnrtegador',
+path: '/mostrarAvaliacoesEntregador',
 component: MostrarAvaliacaoEntregador
 
 }, 

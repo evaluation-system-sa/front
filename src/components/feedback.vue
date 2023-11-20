@@ -5,27 +5,45 @@
     <div class="rating-group">
         <input disabled checked class="rating__input rating__input--none" name="rating3" id="rating3-none" value="0" type="radio">
         <label aria-label="1 star" class="rating__label" for="rating3-1"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-        <input class="rating__input" name="rating3" id="rating3-1" value="2" type="radio">
+        <input class="rating__input" name="rating3" id="rating3-1" value="2" type="radio" v-model="nota">
         <label aria-label="2 stars" class="rating__label" for="rating3-2"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-        <input class="rating__input" name="rating3" id="rating3-2" value="4" type="radio">
+        <input class="rating__input" name="rating3" id="rating3-2" value="4" type="radio" v-model="nota">
         <label aria-label="3 stars" class="rating__label" for="rating3-3"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-        <input class="rating__input" name="rating3" id="rating3-3" value="6" type="radio">
+        <input class="rating__input" name="rating3" id="rating3-3" value="6" type="radio" v-model="nota">
         <label aria-label="4 stars" class="rating__label" for="rating3-4"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-        <input class="rating__input" name="rating3" id="rating3-4" value="8" type="radio">
+        <input class="rating__input" name="rating3" id="rating3-4" value="8" type="radio" v-model="nota">
         <label aria-label="5 stars" class="rating__label" for="rating3-5"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-        <input class="rating__input" name="rating3" id="rating3-5" value="10" type="radio">
+        <input class="rating__input" name="rating3" id="rating3-5" value="10" type="radio" v-model="nota">
     </div>
   <p class="desc" style="font-family: sans-serif; font-size:2.0rem">Senai Food<br/></p>
 
    <div class="desc"> 
-    <input type="text" name="desc" id="desc" placeholder="Digite sua opinião aqui...">
+    <input type="text" name="descricao" id="descricao" placeholder="Digite sua opinião aqui..." v-model="descricao"> 
    </div>
 
 </div>
 
 </template>
 
+<script lang="ts">
+import { defineComponent } from 'vue';
 
+ 
+
+  export default defineComponent({
+
+    name: "feedback",
+    props: {
+
+      nota : Number,
+      descricao : String
+
+    }
+
+    
+  })
+
+</script>
 
 <style> 
  .desc input{
