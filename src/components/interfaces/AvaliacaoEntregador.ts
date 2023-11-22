@@ -1,9 +1,9 @@
 export default interface AvaliacaoEntregador {
 
 id : number,
-id_entregador : number,
-id_cliente : number,
+entregador : number,
+cliente : number,
 nota : number,
-desc : string
+descricao : string
 
 }

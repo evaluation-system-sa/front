@@ -74,18 +74,23 @@
         <tbody>
             <tr v-for=" notaEntregador in avaliacaoEntregador">
                 <th scope="row">{{ notaEntregador.id }}</th>
-                <td>{{ notaEntregador.id_cliente }}</td>
-                <td>{{ notaEntregador.id_entregador }}</td>
+                <td>{{ notaEntregador.cliente }}</td>
+                <td>{{ notaEntregador.entregador }}</td>
                 <td>{{ notaEntregador.nota }}</td>
-                <td>{{ notaEntregador.desc }}</td>
+                <td>{{ notaEntregador.descricao }}</td>
                 <td>
-                    <button type="button" class="btn btn-danger" @click="$emit('aoExcluirAvaliacao', notaEntregador.id)">
+                    <button type="button" class="btn btn-danger" @click="aoExcluirAvaliacao">
                         <i class="fa-solid fa-trash"></i>
                     </button>
                 </td>
                 <td>
 
-                    <button type="button" class="btn btn-danger" @click="$emit('aoAttAvaliacao', notaEntregador.id)"></button>
+                    <button type="button" class="btn btn-danger" @click="aoEditarAvaliacao">
+                    
+                        <i class="fa-solid fa-light fa-pencil"></i>
+
+                    
+                    </button>
 
                 </td>
             </tr>
@@ -113,11 +118,34 @@
         }
     },
     async mounted() {
-        const response = await http.get("/avaliacaoEntregador");
+        const response = await http.get("/avaliacaoEntregador/1");
         this.avaliacaoEntregador = response.data;
+    },
+
+    methods:{
+        
+        async aoExcluirAvaliacao(){
+
+            await http.delete("/avaliacaoRestaurante/1");
+
+            const response = await http.get("/avaliacaoRestaurante/1");
+
+            this.avaliacaoEntregador = response.data;
+
+        },
+
+        async aoEditarAvaliacao(){
+
+            await http.put();
+
+            const response = await http.get("/avaliacaoRestaurante/1");
+
+            this.avaliacaoEntregador = response.data;
+
+        }
+
+
     }
-
-
   
 })
 

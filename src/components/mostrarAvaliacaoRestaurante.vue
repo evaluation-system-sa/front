@@ -73,18 +73,22 @@
         <tbody>
             <tr v-for=" notaRestaurante in avaliacaoRestaurante">
                 <th scope="row">{{ notaRestaurante.id }}</th>
-                <td>{{ notaRestaurante.id_cliente }}</td>
-                <td>{{ notaRestaurante.id_restaurante }}</td>
+                <td>{{ notaRestaurante.cliente }}</td>
+                <td>{{ notaRestaurante.restaurante }}</td>
                 <td>{{ notaRestaurante.nota }}</td>
-                <td>{{ notaRestaurante.desc }}</td>
+                <td>{{ notaRestaurante.descricao }}</td>
                 <td>
-                    <button type="button" class="btn btn-danger" @click="$emit('aoExcluirAvaliacao', notaRestaurante.id)">
+                    <button type="button" class="btn btn-danger" @click="aoExcluirAvaliacao">
                         <i class="fa-solid fa-trash"></i>
                     </button>
                 </td>
                 <td>
 
-                    <button type="button" class="btn btn-danger" @click="$emit('aoAttAvaliacao', notaRestaurante.id)"></button>
+                    <button type="button" class="btn btn-danger" @click="aoEditarAvaliacao">
+                        
+                        <i class="fa-sharp fa-light fa-pencil"></i>
+
+                    </button>
 
                 </td>
             </tr>
@@ -112,8 +116,33 @@ export default defineComponent({
         }
     },
     async mounted() {
-        const response = await http.get("/avaliacaoRestaurante");
+        const response = await http.get("/avaliacaoRestaurante/1");
         this.avaliacaoRestaurante = response.data;
+    },
+
+    methods:{
+        
+        async aoExcluirAvaliacao(){
+
+            await http.delete("/avaliacaoRestaurante/1");
+
+            const response = await http.get("/avaliacaoRestaurante/1");
+
+            this.avaliacaoRestaurante = response.data;
+
+        },
+
+        async aoEditarAvaliacao(){
+
+            await http.put();
+
+            const response = await http.get("/avaliacaoRestaurante/1");
+
+            this.avaliacaoRestaurante = response.data;
+
+        }
+
+
     }
 
 })
