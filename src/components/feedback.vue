@@ -18,8 +18,12 @@
   <p class="desc" style="font-family: sans-serif; font-size:2.0rem">Senai Food<br/></p>
 
    <div class="desc"> 
-    <input type="text" name="descricao" id="descricao" placeholder="Digite sua opinião aqui..." v-model="descricao"> 
-   </div>
+
+    <textarea name="descricao" id="descricao" placeholder="Digite sua opinião aqui..." v-model="descricao" maxlength="280"> </textarea> 
+   
+    <button class="bg-dark">Enviar Avaliações</button>
+  
+  </div>
 
 </div>
 
@@ -46,27 +50,58 @@ import { defineComponent } from 'vue';
 </script>
 
 <style> 
- .desc input{
+
+.desc {
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+}
+
+.desc button{
+
+      padding: 10px 20px;
+      background-color: #8B4513; /* Marrom escuro */
+      color: #fff; /* Texto branco */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+
+
+}
+
+ .desc textarea{
+
   border-width: 2px;
   width: 500px; 
-  height: 250px;
+  height: 100px;
   border-radius: 10px;
   outline: none;
-  border-style: dashed; 
-  border-color: #FF0000;
+  border: 1px solid #181818;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
   text-align: left;
-  
+  margin-bottom: 15px;
+
  }
+
+ .desc button:hover {
+      background-color: #000000; /* Marrom mais claro no hover */
+    }
+
+    .desc button:active {
+      transform: scale(0.95); /* Efeito de escala ao clicar */
+    }
+
  .desc input::placeholder{
   padding: 8px;
   position: absolute;
         top: 0; 
         left: 0;
- }
-
-  
-
- #full-stars-example {
+ }#full-stars-example {
 
 /* use display:inline-flex to prevent whitespace issues. alternatively, you can put all the children of .rating-group on a single line */
 .rating-group {
