@@ -1,62 +1,6 @@
 <template>
 
-<nav class="navbar navbar-expand-lg bg-dark">
-        <div class="container-fluid">
-            <RouterLink to="/" class="navbar-brand text-light" href="#">Senai Food</RouterLink>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <RouterLink to="/dadosRestaurante" class="nav-link text-light">Dados Restaurante</RouterLink>
-                </li>
-                <li class="nav-item">
-                    <RouterLink to="/cardapio" class="nav-link text-light">Cardápio</RouterLink>
-                </li>
-                
-                
-                
-                
-                <li class="nav-item">
-                    <RouterLink to="/entregas" class="nav-link text-light">Entregas</RouterLink>
-                </li>
-                
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    Avaliações
-                    
-                </a>
-           
-                <ul class="dropdown-menu">
-                    <li>
-                        <RouterLink to="/avaliarRestaurante" class="dropdown-item">Restaurante</RouterLink>
-                    </li>
-                    <li>
-                        <RouterLink to="/avaliarEntregador" class="dropdown-item">Entregador</RouterLink>
-                    </li>
-                
-                <li>
-                    <RouterLink to="/mostrarAvaliacoesRestaurante" class="dropdown-item">Avaliações de Restaurantes
-                    </RouterLink>
-                </li>
-                <li>
-                    <RouterLink to="/mostrarAvaliacoesEntregador" class="dropdown-item"> Avaliações de Entregadores
-                    </RouterLink>
-                </li>
-                
-            </ul>
-            </li>
-            
-        </ul>
-        <span class="nav-item">
-            <a class="nav-link text-light">Logout</a>
-        </span>
-    </div>
-</div>
-</nav>
+
     
 <div class="lista">
 
@@ -79,13 +23,13 @@
                 <td>{{ notaEntregador.nota }}</td>
                 <td>{{ notaEntregador.descricao }}</td>
                 <td>
-                    <button type="button" class="btn btn-danger" @click="aoExcluirAvaliacao">
+                    <button type="button" class="btn btn-danger" @click="aoExcluirAvaliacao(notaEntregador.id)">
                         <i class="fa-solid fa-trash"></i>
                     </button>
                 </td>
                 <td>
 
-                    <button type="button" class="btn btn-danger" @click="aoEditarAvaliacao">
+                    <button type="button" class="btn btn-danger" @click="aoEditarAvaliacao(notaEntregador.id)">
                     
                         <i class="fa-solid fa-light fa-pencil"></i>
 
@@ -124,21 +68,21 @@
 
     methods:{
         
-        async aoExcluirAvaliacao(){
+        async aoExcluirAvaliacao(id : number){
 
-            await http.delete("/avaliacaoRestaurante/1");
+            await http.delete("/avaliacaoRestaurante/"+id);
 
-            const response = await http.get("/avaliacaoRestaurante/1");
+            const response = await http.get("/avaliacaoEntregador/1");
 
             this.avaliacaoEntregador = response.data;
 
         },
 
-        async aoEditarAvaliacao(){
+        async aoEditarAvaliacao(id : number){
 
-            await http.put();
+           this.$router.push('/avaliarEntregador/'+id)
 
-            const response = await http.get("/avaliacaoRestaurante/1");
+            const response = await http.get("/avaliacaoEntregador/1");
 
             this.avaliacaoEntregador = response.data;
 

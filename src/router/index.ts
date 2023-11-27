@@ -13,7 +13,7 @@ const router = createRouter({
    
 {
 
-path: '/avaliarEntregador',
+path: '/avaliarEntregador/:id',
 component: FazerAvaliacaoEntregador
 
 
@@ -21,7 +21,7 @@ component: FazerAvaliacaoEntregador
 
 {
 
-  path: '/avaliarRestaurante',
+  path: '/avaliarRestaurante/:id',
   component: FazerAvaliacaoRestaurante
 
 },

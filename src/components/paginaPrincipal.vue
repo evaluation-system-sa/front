@@ -13,22 +13,15 @@
                 </li>
                 <li class="nav-item">
                     <RouterLink to="/cardapio" class="nav-link text-light">Cardápio</RouterLink>
-                </li>
-                
-                
-                
-                
+                </li> 
                 <li class="nav-item">
                     <RouterLink to="/entregas" class="nav-link text-light">Entregas</RouterLink>
                 </li>
-                
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
-                    Avaliações
-                    
+                    Avaliações 
                 </a>
-           
                 <ul class="dropdown-menu">
                     <li>
                         <RouterLink to="/avaliarRestaurante" class="dropdown-item">Restaurante</RouterLink>
@@ -36,7 +29,6 @@
                     <li>
                         <RouterLink to="/avaliarEntregador" class="dropdown-item">Entregador</RouterLink>
                     </li>
-                
                 <li>
                     <RouterLink to="/mostrarAvaliacoesRestaurante" class="dropdown-item">Avaliações de Restaurantes
                     </RouterLink>
@@ -45,7 +37,6 @@
                     <RouterLink to="/mostrarAvaliacoesEntregador" class="dropdown-item"> Avaliações de Entregadores
                     </RouterLink>
                 </li>
-                
             </ul>
             </li>
             

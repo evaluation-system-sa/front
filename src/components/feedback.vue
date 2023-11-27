@@ -5,23 +5,23 @@
     <div class="rating-group">
         <input disabled checked class="rating__input rating__input--none" name="rating3" id="rating3-none" value="0" type="radio">
         <label aria-label="1 star" class="rating__label" for="rating3-1"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-        <input class="rating__input" name="rating3" id="rating3-1" value="2" type="radio" v-model="nota">
+        <input class="rating__input" name="rating3" id="rating3-1" value="2" type="radio" :checked="nota==2" @change="$emit('update:nota', 2)">
         <label aria-label="2 stars" class="rating__label" for="rating3-2"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-        <input class="rating__input" name="rating3" id="rating3-2" value="4" type="radio" v-model="nota">
+        <input class="rating__input" name="rating3" id="rating3-2" value="4" type="radio" :checked="nota==4" @change="$emit('update:nota', 4)">
         <label aria-label="3 stars" class="rating__label" for="rating3-3"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-        <input class="rating__input" name="rating3" id="rating3-3" value="6" type="radio" v-model="nota">
+        <input class="rating__input" name="rating3" id="rating3-3" value="6" type="radio" :checked="nota==6" @change="$emit('update:nota', 6)">
         <label aria-label="4 stars" class="rating__label" for="rating3-4"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-        <input class="rating__input" name="rating3" id="rating3-4" value="8" type="radio" v-model="nota">
+        <input class="rating__input" name="rating3" id="rating3-4" value="8" type="radio" :checked="nota==8" @change="$emit('update:nota', 8)">
         <label aria-label="5 stars" class="rating__label" for="rating3-5"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-        <input class="rating__input" name="rating3" id="rating3-5" value="10" type="radio" v-model="nota">
+        <input class="rating__input" name="rating3" id="rating3-5" value="10" type="radio" :checked="nota==10" @change="$emit('update:nota', 10)">
     </div>
   <p class="desc" style="font-family: sans-serif; font-size:2.0rem">Senai Food<br/></p>
 
    <div class="desc"> 
 
-    <textarea name="descricao" id="descricao" placeholder="Digite sua opinião aqui..." v-model="descricao" maxlength="280"> </textarea> 
+    <textarea name="descricao" id="descricao" placeholder="Digite sua opinião aqui..." :value="descricao"  @input="$emit('update:descricao', ($event.target as HTMLTextAreaElement).value)" maxlength="280"> </textarea> 
    
-    <button class="bg-dark">Enviar Avaliações</button>
+    <button class="bg-dark" @click="$emit('aoEditar')">Enviar Avaliações</button>
   
   </div>
 
@@ -42,7 +42,8 @@ import { defineComponent } from 'vue';
       nota : Number,
       descricao : String
 
-    }
+    },   emits: ['update:nota','update:descricao', 'aoEditar']
+
 
     
   })
